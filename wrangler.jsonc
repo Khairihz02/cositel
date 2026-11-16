@@ -1,0 +1,26 @@
+// Cloudflare Worker configuration for Cositel.
+// See DEPLOY-CLOUDFLARE.md for the first-time setup.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cositel",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cositel-db",
+      // Replace with the id printed by `wrangler d1 create cositel-db`.
+      "database_id": "00000000-0000-4000-8000-000000000000",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "cositel-files"
+    }
+  ]
+  // Secret (not stored here): ADMIN_PASSWORD, set with `wrangler secret put ADMIN_PASSWORD`.
+}

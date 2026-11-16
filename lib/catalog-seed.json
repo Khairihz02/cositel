@@ -1,0 +1,114 @@
+[
+  {
+    "id": 0,
+    "name": "Pack de 5 paires",
+    "category": "slippers",
+    "description": "5 paires de slippers pour la maison et vos invités.",
+    "contents": [
+      "5 paires de slippers",
+      "10 chaussons au total"
+    ],
+    "image": "/assets/slippin-pack5.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 1,
+    "name": "Pack de 10 paires",
+    "category": "slippers",
+    "description": "10 paires de slippers pour recevoir en douceur.",
+    "contents": [
+      "10 paires de slippers",
+      "20 chaussons au total"
+    ],
+    "image": "/assets/slippin-pack10.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 2,
+    "name": "Pack de 25 paires",
+    "category": "slippers",
+    "description": "25 paires de slippers pour vos grandes occasions.",
+    "contents": [
+      "25 paires de slippers",
+      "50 chaussons au total"
+    ],
+    "image": "/assets/maison.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 3,
+    "name": "Pack linge de bain",
+    "category": "bain",
+    "description": "1 cape de bain + 1 serviette + 1 drap de bain.",
+    "contents": [
+      "1 cape de bain",
+      "1 serviette",
+      "1 drap de bain"
+    ],
+    "image": "/assets/bain-cosy.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 4,
+    "name": "Kit dentaire bambou",
+    "category": "accueil",
+    "description": "Kit dentaire avec brosse à dents en bambou.",
+    "contents": [
+      "Brosse à dents en bambou",
+      "Contenu complémentaire à confirmer"
+    ],
+    "image": "/assets/kit-dentaire.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 5,
+    "name": "Kit rasage bambou",
+    "category": "accueil",
+    "description": "Kit de rasage avec rasoir à manche en bambou.",
+    "contents": [
+      "Rasoir à manche en bambou",
+      "Contenu complémentaire à confirmer"
+    ],
+    "image": "/assets/kit-rasage.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 6,
+    "name": "Vanity set",
+    "category": "accueil",
+    "description": "Les petits accessoires du rituel beauté.",
+    "contents": [
+      "Accessoires de toilette",
+      "Composition détaillée à confirmer"
+    ],
+    "image": "/assets/vanity-set.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  },
+  {
+    "id": 7,
+    "name": "Peigne en bambou",
+    "category": "accueil",
+    "description": "Un peigne en bambou pour votre salle de bain.",
+    "contents": [
+      "1 peigne en bambou"
+    ],
+    "image": "/assets/peigne-bambou.png",
+    "price_millimes": null,
+    "stock": null,
+    "active": 1
+  }
+]

@@ -1,0 +1,1 @@
+ALTER TABLE `products` ADD `sale_price_millimes` integer;
