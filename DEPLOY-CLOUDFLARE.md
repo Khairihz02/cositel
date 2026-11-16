@@ -1,6 +1,8 @@
 # Deploying Cositel to Cloudflare
 
-Cositel runs on Cloudflare Workers, with a D1 database (orders, products, settings) and an R2 bucket (photos and customer logo files). Everything below fits in Cloudflare's free plan for a shop of this size.
+Cositel runs on Cloudflare Workers, with a D1 database (orders, products, settings) and a Workers KV namespace (photos and customer logo files). Everything below fits in Cloudflare's free plan, with no payment method needed.
+
+> Already set up for this shop: database `cositel-db` and KV namespace `cositel-files` exist, their IDs are in `wrangler.jsonc`, and the tables are created. Steps 2–3 are only for a brand-new Cloudflare account.
 
 All commands are run from this `cositel` folder.
 
@@ -31,10 +33,12 @@ pnpm exec wrangler d1 create cositel-db
 Copy the `database_id` it prints into `wrangler.jsonc`, replacing `00000000-0000-4000-8000-000000000000`.
 
 ```bash
-pnpm exec wrangler r2 bucket create cositel-files
+pnpm exec wrangler kv namespace create cositel-files
 ```
 
-If Cloudflare says R2 is not enabled, open **R2 Object Storage** in the dashboard and enable it first. It may ask for a payment method even though the free tier (10 GB) covers this shop.
+Copy the `id` it prints into `wrangler.jsonc` under `kv_namespaces` (binding `FILES`).
+
+Free-plan limits for files: 1 GB in total, 25 MB per file, 1,000 uploads per day. The shop's uploads are at most 5 MB (photos) and 12 MB (a custom design). To move to R2 later, replace `lib/file-store.mjs` with the R2 binding; the rest of the code already uses the R2 API.
 
 ## 3. Create the database tables
 
@@ -84,7 +88,7 @@ Dashboard → `cositel` Worker → **Settings** → **Domains & Routes** → **A
 
 ## Data from the old ChatGPT-hosted site
 
-This code doesn't include the old site's orders, prices, stock or uploaded photos (see `LIRE-MOI-HEBERGEMENT.md`). To keep them, export the D1 database and R2 files from the old platform and import them here, keeping file keys and IDs unchanged. Otherwise, start fresh and re-enter prices and photos in `/admin`.
+This code doesn't include the old site's orders, prices, stock or uploaded photos (see `LIRE-MOI-HEBERGEMENT.md`). To keep them, export the D1 database and the R2 files from the old platform and import them here (files go into the KV namespace, under the same keys), keeping file keys and IDs unchanged. Otherwise, start fresh and re-enter prices and photos in `/admin`.
 
 ## Local development
 

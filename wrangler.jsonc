@@ -7,19 +7,24 @@
   "compatibility_date": "2026-05-15",
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true },
+  // Public address. ecoporte.tn's DNS is on Cloudflare; Cloudflare creates the
+  // cositel record and HTTPS certificate. The rest of ecoporte.tn (WordPress,
+  // email) stays on Oxahost with "DNS only" records.
+  "routes": [{ "pattern": "cositel.ecoporte.tn", "custom_domain": true }],
+  "workers_dev": false,
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "cositel-db",
-      // Replace with the id printed by `wrangler d1 create cositel-db`.
-      "database_id": "00000000-0000-4000-8000-000000000000",
+      "database_id": "5a76704c-4f98-4c69-9432-faa0543e522b",
       "migrations_dir": "drizzle"
     }
   ],
-  "r2_buckets": [
+  // Photos and customer design files (see lib/file-store.mjs).
+  "kv_namespaces": [
     {
-      "binding": "BUCKET",
-      "bucket_name": "cositel-files"
+      "binding": "FILES",
+      "id": "3d4eecf9bdb84d66aa5a566902b81940"
     }
   ]
   // Secret (not stored here): ADMIN_PASSWORD, set with `wrangler secret put ADMIN_PASSWORD`.

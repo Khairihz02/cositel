@@ -6,7 +6,7 @@ La boutique utilise le catalogue D1. Le tableau de bord est disponible sur `/adm
 
 1. Ouvrir `/admin` et se connecter avec le mot de passe gestionnaire. Le catalogue initial est importé une seule fois.
 2. Compléter les noms, descriptions, contenus, prix en DT et stocks. Les stocks correspondent au nombre de packs, sauf les slippers personnalisés suivis en paires.
-3. Importer les photos réelles (JPG/PNG/WebP, 5 Mo maximum). Les fichiers sont stockés en R2.
+3. Importer les photos réelles (JPG/PNG/WebP, 5 Mo maximum). Les fichiers sont stockés dans Workers KV (`lib/file-store.mjs`).
 4. Définir un tarif unique de livraison en Tunisie et les informations de livraison dans Réglages.
 5. Activer les commandes après validation de l’offre. L’accès public est un réglage Sites séparé ; cette version conserve l’accès privé existant.
 6. Consulter Commandes pour confirmer, préparer, expédier et marquer les livraisons. Les statuts finaux sont définitifs ; l’annulation rétablit le stock suivi.
@@ -25,7 +25,7 @@ La boutique utilise le catalogue D1. Le tableau de bord est disponible sur `/adm
 
 `node tests/integration.mjs`
 
-La deuxième commande utilise un stockage D1/R2 isolé, sans toucher aux données hébergées. Elle vérifie les droits, l’origine, le catalogue initial idempotent, les modifications, les totaux, les doublons de commandes, le stock concurrent et l’annulation.
+La deuxième commande utilise un stockage D1/KV isolé, sans toucher aux données hébergées. Elle vérifie les droits, l’origine, le catalogue initial idempotent, les modifications, les totaux, les doublons de commandes, le stock concurrent et l’annulation.
 
 Le site utilise le starter Sites Vinext et ses scripts de build, migrations et publication. Ne pas appliquer manuellement une migration déjà appliquée.
 
